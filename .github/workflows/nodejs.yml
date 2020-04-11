@@ -29,7 +29,7 @@ jobs:
     - run: npm test
       env:
         CI: true
-        URL_HOST: https://ro.todoist.com/Users/showLogin
+        URL_HOST: https://todoist.com/Users/showLogin
         TODOIST_USERNAME: ${{secrets.TODOIST_USERNAME}}
         TODOIST_PASSWORD: ${{secrets.TODOIST_PASSWORD}}
         SAUCE_USERNAME: ${{secrets.SAUCE_USERNAME}}
