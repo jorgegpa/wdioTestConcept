@@ -3,8 +3,8 @@ import {} from 'dotenv/config'
 class BaseTest{
   
     preCondition(){
-     const usrname = process.env.USERNAME
-     const passwd = process.env.PASSWORD
+     const usrname = process.env.TODOIST_USERNAME
+     const passwd = process.env.TODOIST_PASSWORD
      LoginPage.open(process.env.URL_HOST)
      LoginPage.setUsername(usrname)
      LoginPage.setPassword(passwd)
