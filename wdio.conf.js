@@ -63,11 +63,7 @@ exports.config = {
     //,
  {
             maxInstances: 5,
-            browserName: 'safari',
-            browserVersion: 'latest',
-            platformName: 'macOS 10.14',
-            "sauce:options": {
-            }
+            browserName: 'chrome'
     }
   ],
     //
@@ -119,7 +115,7 @@ exports.config = {
     // commands. Instead, they hook themselves up into the test process.
     user: process.env.SAUCE_USERNAME,
     key: process.env.SAUCE_ACCESS_KEY,
-    services: ['sauce'],
+    services: ['chromedriver'],
     
     // Framework you want to run your specs with.
     // The following are supported: Mocha, Jasmine, and Cucumber
@@ -138,7 +134,12 @@ exports.config = {
     // Test reporter for stdout.
     // The only one supported by default is 'dot'
     // see also: https://webdriver.io/docs/dot-reporter.html
-    reporters: ['spec'],
+    reporters: [['allure', {
+        outputDir: 'allure-results',
+        disableWebdriverStepsReporting: true,
+        disableWebdriverScreenshotsReporting: true,
+        disableMochaHooks:true
+    }]],
  
     //
     // Options to be passed to Mocha.
