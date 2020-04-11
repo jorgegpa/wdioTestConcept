@@ -16,7 +16,7 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [10.x, 12.x]
+        node-version: [12.x]
 
     steps:
     - uses: actions/checkout@v2
@@ -29,3 +29,8 @@ jobs:
     - run: npm test
       env:
         CI: true
+        URL_HOST: https://ro.todoist.com/Users/showLogin
+        TODOIST_USERNAME: ${{secrets.TODOIST_USERNAME}}
+        TODOIST_PASSWORD: ${{secrets.TODOIST_PASSWORD}}
+        SAUCE_USERNAME: ${{secrets.SAUCE_USERNAME}}
+        SAUCE_ACCESS_KEY: ${{secrets.SAUCE_ACCESS_KEY}}
