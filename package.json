@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "npm run lint && npx wdio wdio.conf.js",
-    "lint": "eslint test/"
+    "lint": "eslint test/",
+    "sonar": "node sonar-project.js"
   },
   "author": "jorgegpa",
   "license": "MIT",
@@ -36,6 +37,7 @@
     "eslint-plugin-react": "^7.19.0",
     "eslint-plugin-standard": "^4.0.1",
     "geckodriver": "^1.19.1",
+    "sonarqube-scanner": "^2.6.0",
     "wdio-chromedriver-service": "^6.0.1",
     "wdio-geckodriver-service": "^1.0.3",
     "wdio-phantomjs-service": "^0.2.2",
