@@ -38,6 +38,7 @@
     "geckodriver": "^1.19.1",
     "wdio-chromedriver-service": "^6.0.1",
     "wdio-geckodriver-service": "^1.0.3",
+    "wdio-phantomjs-service": "^0.2.2",
     "wdio-safaridriver-service": "0.0.1"
   }
 }
