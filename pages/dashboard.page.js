@@ -1,6 +1,6 @@
 // dashboard.page.js
 class DashboardPage{
-    get todayHeader() { return $('.view_header h1') }
+    get todayHeader() { return $('.section_day h2') }
 }
 
 export default new DashboardPage()
