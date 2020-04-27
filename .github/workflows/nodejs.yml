@@ -24,6 +24,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Use Node.js ${{ matrix.node-version }}
+      uses: rtCamp/action-slack-notify@v2.0.1
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
@@ -38,3 +39,4 @@ jobs:
         TODOIST_PASSWORD: ${{secrets.TODOIST_PASSWORD}}
         SAUCE_USERNAME: ${{secrets.SAUCE_USERNAME}}
         SAUCE_ACCESS_KEY: ${{secrets.SAUCE_ACCESS_KEY}}
+        SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
