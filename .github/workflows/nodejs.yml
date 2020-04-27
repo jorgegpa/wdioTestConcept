@@ -15,12 +15,11 @@ on:
 jobs:
  ci_actions:
   name: CI_Actions_Job
-   build:
-     runs-on: ubuntu-latest
-     strategy:
-       matrix:
-         node-version: [12.x]
-     steps:
+  runs-on: ubuntu-latest
+  strategy:
+    matrix:
+      node-version: [12.x]
+    steps:
      - uses: actions/checkout@v2
      - name: Use Node.js ${{ matrix.node-version }}
        uses: actions/setup-node@v1
