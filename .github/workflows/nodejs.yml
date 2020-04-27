@@ -13,41 +13,38 @@ on:
     - cron: '0 */12 * * *'
 
 jobs:
-ci_actions:
- name: CI_Actions_Job
-  build:
-    runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node-version: [12.x]
-    steps:
-    - uses: actions/checkout@v2
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v1
-      with:
-        node-version: ${{ matrix.node-version }}
-    - run: npm install
-    - run: npm ci
-    - run: npm run build --if-present
-    - run: npm test
-      env:
-        CI: true
-        URL_HOST: https://todoist.com/Users/showLogin
-        TODOIST_USERNAME: ${{secrets.TODOIST_USERNAME}}
-        TODOIST_PASSWORD: ${{secrets.TODOIST_PASSWORD}}
-        SAUCE_USERNAME: ${{secrets.SAUCE_USERNAME}}
-        SAUCE_ACCESS_KEY: ${{secrets.SAUCE_ACCESS_KEY}}
-    
+ ci_actions:
+  name: CI_Actions_Job
+   build:
+     runs-on: ubuntu-latest
+     strategy:
+       matrix:
+         node-version: [12.x]
+     steps:
+     - uses: actions/checkout@v2
+     - name: Use Node.js ${{ matrix.node-version }}
+       uses: actions/setup-node@v1
+       with:
+         node-version: ${{ matrix.node-version }}
+     - run: npm install
+     - run: npm ci
+     - run: npm run build --if-present
+     - run: npm test
+       env:
+         CI: true
+         URL_HOST: https://todoist.com/Users/showLogin
+         TODOIST_USERNAME: ${{secrets.TODOIST_USERNAME}}
+         TODOIST_PASSWORD: ${{secrets.TODOIST_PASSWORD}}
+         SAUCE_USERNAME: ${{secrets.SAUCE_USERNAME}}
+         SAUCE_ACCESS_KEY: ${{secrets.SAUCE_ACCESS_KEY}}
 
-on: push
-name: Slack Notification Demo
-jobs:
   slackNotification:
     name: Slack Notification
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
-    - name: Slack Notification
-      uses: rtCamp/action-slack-notify@v2.0.0
-      env:
-        SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
+     - uses: actions/checkout@v2
+     - name: Slack Notification
+       uses: rtCamp/action-slack-notify@v2.0.0
+       env:
+         SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}  
+    
