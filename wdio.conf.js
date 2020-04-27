@@ -65,7 +65,7 @@ exports.config = {
             maxInstances: 5,
             browserName: 'chrome',
             'goog:chromeOptions': {
-                args: [],
+                args: ['--headless', '--disable-gpu'],
             }
     }
   ],
@@ -118,7 +118,7 @@ exports.config = {
     // commands. Instead, they hook themselves up into the test process.
     // user: process.env.SAUCE_USERNAME,
     // key: process.env.SAUCE_ACCESS_KEY,
-    services: ['phantomjs'],
+    services: ['chromeservice'],
     
     // Framework you want to run your specs with.
     // The following are supported: Mocha, Jasmine, and Cucumber
